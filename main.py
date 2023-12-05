@@ -22,9 +22,10 @@ class Game:
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
                 if column == "B":
-                    Block(self,j,i)
+                    Block(self, j, i)
                 if column == "P":
-                    Player(self,j,i)
+                    Player(self, j, i)
+
     def new(self):
 
         self.playing = True
@@ -35,8 +36,6 @@ class Game:
         self.attacks = pygame.sprite.LayeredUpdates()
 
         self.createTilemap()
-
-
 
     def events(self):
         # game loop events
@@ -79,4 +78,3 @@ while g.running:
 
 pygame.quit()
 sys.exit()
-
