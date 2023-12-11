@@ -1,4 +1,5 @@
 import sys
+import asyncio
 from sprites import *
 from config import *
 import pygame
@@ -60,12 +61,13 @@ class Game:
         self.clock.tick(FPS)
         pygame.display.update()
 
-    def main(self):
+    async def main(self):
         # game loop
         while self.playing:
             self.events()
             self.update()
             self.draw()
+            await asyncio.sleep(0)
         self.running = False
 
     def game_over(self):
@@ -79,7 +81,7 @@ g = Game()
 g.intro_screen()
 g.new()
 while g.running:
-    g.main()
+    asyncio.run(g.main())
     g.game_over()
 
 pygame.quit()
