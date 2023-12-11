@@ -4,6 +4,7 @@ from sprites import *
 from config import *
 import pygame
 
+
 # initializes pygame
 
 
@@ -22,19 +23,20 @@ class Game:
         self.character_spritesheet = Spritesheet('img/character.png')
         self.terrain_spritesheet = Spritesheet('img/terrain.png')
         self.enemy_spritesheet = Spritesheet('img/enemy.png')
+        self.attack_spritesheet = Spritesheet('img/attack.png')
         self.intro_background = pygame.image.load('./img/introbackground.png')
         self.go_background = pygame.image.load('./img/gameover.png')
 
     def createTilemap(self):
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
-                Ground(self,j,i)
+                Ground(self, j, i)
                 if column == "B":
                     Block(self, j, i)
                 if column == "P":
-                    Player(self, j, i)
+                    self.player = Player(self, j, i)
                 if column == "E":
-                    Enemy(self,j,i)
+                    Enemy(self, j, i)
 
     def new(self):
 
@@ -53,6 +55,17 @@ class Game:
             if event.type == pygame.QUIT:
                 self.playing = False
                 self.running = False
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    if self.player.facing == 'up':
+                        Attack(self, self.player.rect.x, self.player.rect.y - TILESIZE)
+                    if self.player.facing == 'down':
+                        Attack(self, self.player.rect.x, self.player.rect.y + TILESIZE)
+                    if self.player.facing == 'left':
+                        Attack(self, self.player.rect.x - TILESIZE, self.player.rect.y)
+                    if self.player.facing == 'right':
+                        Attack(self, self.player.rect.x + TILESIZE, self.player.rect.y)
 
     def update(self):
         # game loop updates
@@ -74,7 +87,7 @@ class Game:
 
     def game_over(self):
         text = self.font.render("GAME OVER", True, WHITE)
-        text_rect = text.get_rect(center=(WIN_WIDTH/2, WIN_HEIGHT/2))
+        text_rect = text.get_rect(center=(WIN_WIDTH / 2, WIN_HEIGHT / 2))
 
         restart_button = Button(10, WIN_HEIGHT - 60, 120, 50, WHITE, BLACK, 'Restart', 32)
 
@@ -93,7 +106,7 @@ class Game:
                     self.new()
                     asyncio.run(self.main())
 
-                self.screen.blit(self.go_background, (0,0))
+                self.screen.blit(self.go_background, (0, 0))
                 self.screen.blit(text, text_rect)
                 self.screen.blit(restart_button.image, restart_button.rect)
                 self.clock.tick(FPS)
@@ -103,7 +116,7 @@ class Game:
         intro = True
 
         title = self.font.render('Swag Money Game', True, BLACK)
-        title_rect = title.get_rect(x=10,y=10)
+        title_rect = title.get_rect(x=10, y=10)
 
         play_button = Button(10, 50, 100, 50, WHITE, BLACK, 'Play', 32)
 
@@ -119,7 +132,7 @@ class Game:
             if play_button.is_pressed(mouse_pos, mouse_pressed):
                 intro = False
 
-            self.screen.blit(self.intro_background, (0,0))
+            self.screen.blit(self.intro_background, (0, 0))
             self.screen.blit(title, title_rect)
             self.screen.blit(play_button.image, play_button.rect)
             self.clock.tick(FPS)
