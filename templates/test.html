@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Video Game Site</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 20px;
+            text-align: right;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .login-button {
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .site-title {
+            text-align: center;
+            padding: 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-title">
+        Awesome Video Game Site
+        <button class="login-button">Login</button>
+    </div>
+
+    <header>
+
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-item"><a href="/addingsoon"><img src="https://via.placeholder.com/400x300" alt="Image 1"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://imgix.bustle.com/uploads/image/2023/11/16/a14284aa-aac0-49d6-928c-132fd1499be7-fortnite-overview-og-key-art-bg-1920x1080-7502af1ad201.jpg?w=400&h=300&fit=crop&crop=faces&auto=format%2Ccompress" alt="Fortnite"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://wallpapers.com/images/featured/super-mario-fkq1k1pst35iab2c.jpg" alt="Mario"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://assets-prd.ignimgs.com/2022/08/26/overwatch-1661526133121.jpg?crop=16%3A9&width=888&dpr=2" alt="OverWatch"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://assets-prd.ignimgs.com/2022/08/26/36190303tetris99blogroll-2-1550623174255-1661527645689.jpeg?fit=bounds&width=1280&height=720&dpr=2" alt="tetris"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Pubgbattlegrounds.png" alt="Image 6"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" alt="Image 7"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg" alt="Image 8"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/8/8f/NewSuperMarioBrosWiiBoxart.png" alt="Image 9"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/8/80/Diablo_III_cover.png" alt="Image 10"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/3/32/Super_Mario_World_Coverart.png" alt="Image 11"></div>
+        <div class="grid-item"><a href="/addingsoon"><img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Pokemon_Sun_Boxart.jpg" alt="Image 12"></div>
+    </div>
+
+</body>
+</html>
