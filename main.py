@@ -23,10 +23,13 @@ class Game:
         self.character_spritesheet = Spritesheet('img/character.png')
         self.terrain_spritesheet = Spritesheet('img/terrain.png')
         self.enemy_spritesheet = Spritesheet('img/enemy.png')
+        self.enemy2_spritesheet = Spritesheet('img/enemy2.png')
         self.attack_spritesheet = Spritesheet('img/attack.png')
+        self.coin_spritesheet = Spritesheet('img/coin.png')
         self.intro_background = pygame.image.load('./img/introbackground.png')
         self.go_background = pygame.image.load('./img/gameover.png')
 
+        self.coinz = 0
     def createTilemap(self):
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
@@ -37,6 +40,10 @@ class Game:
                     self.player = Player(self, j, i)
                 if column == "E":
                     Enemy(self, j, i)
+                if column == "e":
+                    Enemy2(self, j, i)
+                if column == 'C':
+                    Coin(self, j, i)
 
     def new(self):
 
@@ -46,6 +53,7 @@ class Game:
         self.blocks = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
+        self.coins = pygame.sprite.LayeredUpdates()
 
         self.createTilemap()
 
@@ -75,6 +83,8 @@ class Game:
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
+        self.collected_coins = self.font.render(f"Coins: {self.coinz}", True, YELLOW)
+        self.screen.blit(self.collected_coins, (0, 450))
         pygame.display.update()
 
     async def main(self):
