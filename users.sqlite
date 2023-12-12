@@ -1,0 +1,2 @@
+create table users;
+ALTER TABLE users ADD user_id AND email AND password;
