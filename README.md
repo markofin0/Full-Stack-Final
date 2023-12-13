@@ -59,3 +59,8 @@ https://upload.wikimedia.org/wikipedia/en/b/ba/Pokemon_Sun_Boxart.jpg
 source for snake game:
 
 https://gist.github.com/ZiKT1229/5935a10ce818ea7b851ea85ecf55b4da
+
+other acknowledgements:
+
+Stackoverflow and reddit for when I was stuck with errors that i didnt now how to debug (spent many hours on trying to work pygbag)
+
