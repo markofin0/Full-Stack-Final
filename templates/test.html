@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,6 +52,17 @@
             cursor: pointer;
         }
 
+        .logout-button {
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         .site-title {
             text-align: center;
             padding: 20px;
@@ -60,11 +72,17 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="site-title">
         Awesome Video Game Site
-        <button class="login-button">Login</button>
+
+        {% if session.authenticated %}
+            <a href="/logout" class="logout-button">Logout</a>
+        {% else %}
+            <a href="/login" class="login-button">Login</a>
+        {% endif %}
     </div>
 
     <header>
@@ -72,7 +90,7 @@
     </header>
 
     <div class="grid-container">
-        <div class="grid-item"><a href="/addingsoon"><img src="https://via.placeholder.com/400x300" alt="Image 1"></div>
+        <div class="grid-item"><a href="/snake"><img src="https://www.coolmathgames.com/sites/default/files/styles/mobile_game_image/public/Snake_OG-logo.jpg?itok=iR44Vsed" alt="Image 1"></div>
         <div class="grid-item"><a href="/addingsoon"><img src="https://imgix.bustle.com/uploads/image/2023/11/16/a14284aa-aac0-49d6-928c-132fd1499be7-fortnite-overview-og-key-art-bg-1920x1080-7502af1ad201.jpg?w=400&h=300&fit=crop&crop=faces&auto=format%2Ccompress" alt="Fortnite"></div>
         <div class="grid-item"><a href="/addingsoon"><img src="https://wallpapers.com/images/featured/super-mario-fkq1k1pst35iab2c.jpg" alt="Mario"></div>
         <div class="grid-item"><a href="/addingsoon"><img src="https://assets-prd.ignimgs.com/2022/08/26/overwatch-1661526133121.jpg?crop=16%3A9&width=888&dpr=2" alt="OverWatch"></div>
@@ -88,3 +106,5 @@
 
 </body>
 </html>
+
+
